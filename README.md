@@ -1,29 +1,83 @@
 # Echo – Life Decision Simulator
 
-> Simulate today's choices. Visualize tomorrow's future.
+> **Simulate today's choices. Visualize tomorrow's future.**
 
 ## Overview
 
-Echo is a Python-based simulation application that helps users understand how their daily decisions can influence their long-term future.
+Echo is a Python terminal application that helps users visualize how their daily habits shape their future.
 
-Instead of simply tracking habits or finances, Echo simulates different life scenarios related to time, learning, career, and personal goals.
+Rather than predicting the future, Echo reflects the future you're building through your daily actions and consistency.
 
-## Planned Features
+## Features
 
-- Time allocation simulation
-- Career growth simulation
-- Financial goal projection
-- "What If?" decision engine
-- Goal progress tracking
-- Future AI-powered insights
+- Interactive terminal experience
+- Personalized user interaction
+- Daily habit and goal simulation
+- Time investment calculations
+- Input validation
+- Clean terminal interface
+- Modular Python architecture
+
+## Current Simulation
+
+Echo currently allows users to:
+
+- Enter their personal goal
+- Define a daily habit
+- Set the number of hours they can consistently invest
+- Visualize how those hours accumulate over:
+  - 30 Days
+  - 1 Year
+  - 5 Years
+- Receive a motivational "Future Echo" message
+
+## Project Structure
+
+```text
+echo-life-simulator/
+│
+├── main.py
+├── modules/
+├── data/
+├── docs/
+├── assets/
+├── README.md
+└── .gitignore
+```
 
 ## Tech Stack
 
 - Python
-- JSON
 - Git
 - GitHub
+- JSON (planned for data persistence)
+
+## Roadmap
+
+### ✅ Version 0.1
+- Interactive terminal application
+- Modular project structure
+- Input validation
+- Future simulation
+- Terminal UI improvements
+- Personalized output
+
+### 🚀 Planned Features
+
+- Save simulations to JSON
+- Simulation history
+- Progress tracking
+- Decision scoring system
+- Multiple life scenarios
+- AI-inspired personalized future messages
+
+## Status
+
+🟢 **Version 0.1 Complete**
+
+This project is actively being developed as part of my Python learning journey while following professional software development practices.
 
 ---
 
-🚧 Currently under active development.
+*"Your future isn't built in one day. It's built by repeating today's habit again... and again... and again."*  
+**— Echo**
