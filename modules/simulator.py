@@ -68,12 +68,13 @@ def generate_future_echo(name, goal, habit, hours):
     print("=" * 60)
     print()
      
-    print("Hello,", name + ".")
+    print(f"Hello, {name}.")
     print()
     print("Analyzing your future...")
     time.sleep(2)
     print()
     print("I've analyzed your daily choices...")
+    time.sleep(1.5)
     print()
 
     print("Your goal          : " , goal)
@@ -92,6 +93,7 @@ def generate_future_echo(name, goal, habit, hours):
     print()
 
     print("5 Years   →", hours_5_years, "hours invested")
+    time.sleep(2)
     
     print()
     print("-" * 60)
@@ -111,6 +113,65 @@ def generate_future_echo(name, goal, habit, hours):
 
     print("                         — Echo")
 
+    print("-" * 60)
+    print()
+
+    print("=" * 60)
+    print("                 A MESSAGE FROM YOUR FUTURE")
+    print("=" * 60)
+    time.sleep(2)
+    print()
+
+    print(f"Hey, {name}.")
+    print()
+
+    print("Thank you.")
+    print("Thank you...")
+    time.sleep(2)
+    print()
+
+    print("Thank you for choosing your future")
+    print("even when nobody was watching.")
+    time.sleep(2)
+    print()
+
+    print("Thank you for spending time")
+    print(f"every day on {habit.lower()},")
+    print("when it would've been easier to quit.")
+    time.sleep(2)
+    print()
+    
+
+    print()
+
+    print("Thank you for carrying uncertainty,")
+    print("self-doubt, and pressure...")
+    print("so I wouldn't have to.")
+    time.sleep(2)
+    print()
+
+    print("Today, I'm living the life")
+    print("you kept believing in.")
+    print()
+
+    print("Remember this...")
+    print()
+
+    print("You are no longer")
+    print("the person standing at Level 0.")
+    print()
+
+    print("You've already become someone")
+    print("who takes action.")
+    print()
+
+    print("Protect that version of yourself.")
+    print("Keep moving.")
+    print()
+
+    print("I'll be waiting for you.")
+    print()
+    print("                         — Future You")
     print("=" * 60)
 
 def start_simulation():
