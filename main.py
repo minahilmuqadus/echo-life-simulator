@@ -1,9 +1,13 @@
+from modules.simulator import start_simulation
+
+
+
+
+
+
 def main():
-    print("=" * 50)
-    print("        Echo - Life Decision Simulator")
-    print("=" * 50)
-    print("\nProject initialized successfully.")
-    print("Development starts here...\n")
+    
+    start_simulation()
 
 
 if __name__ == "__main__":
