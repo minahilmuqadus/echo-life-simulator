@@ -99,80 +99,78 @@ def generate_future_echo(name, goal, habit, hours):
     print("-" * 60)
     print()
 
-    print("Remember...")
-    print()
+    future_message = f"""
+    Remember...
 
-    print("Your future isn't built in one day.")
-    print()
+    Your future isn't built in one day.
 
-    print("It's built by repeating today's habit")
-    print("again...")
-    print("and again...")
-    print("and again.")
-    print()
+    It's built by repeating today's habit
+    again...
+    and again...
+    and again.
 
-    print("                         — Echo")
+                         — Echo
+    """
+
+    print(future_message)
 
     print("-" * 60)
     print()
 
+    future_message = f"""
+============================================================
+                   A MESSAGE FROM YOUR FUTURE
+============================================================
+
+Hey, {name}.
+
+Thank you.
+
+Thank you for choosing your future,
+even when nobody was watching.
+
+Thank you for spending time every day
+on {habit.lower()},
+when it would've been easier to quit.
+
+Thank you for carrying uncertainty,
+self-doubt, and pressure...
+
+...so I wouldn't have to.
+
+Today, I'm living the life
+you kept believing in.
+
+Remember this...
+
+You are no longer
+the person standing at Level 0.
+
+You've already become someone
+who takes action.
+
+Protect that version of yourself.
+
+Keep moving.
+
+I'll be waiting for you.
+
+                          — Future You
+============================================================
+"""
+
+    time.sleep(2)
     print("=" * 60)
-    print("                 A MESSAGE FROM YOUR FUTURE")
-    print("=" * 60)
+    print("Receiving transmission from the future...")
     time.sleep(2)
-    print()
 
-    print(f"Hey, {name}.")
-    print()
-
-    print("Thank you.")
-    print("Thank you...")
+    print("Decrypting message...")
     time.sleep(2)
-    print()
 
-    print("Thank you for choosing your future")
-    print("even when nobody was watching.")
-    time.sleep(2)
-    print()
+    print("Connection established.")
+    time.sleep(1)
 
-    print("Thank you for spending time")
-    print(f"every day on {habit.lower()},")
-    print("when it would've been easier to quit.")
-    time.sleep(2)
-    print()
-    
-
-    print()
-
-    print("Thank you for carrying uncertainty,")
-    print("self-doubt, and pressure...")
-    print("so I wouldn't have to.")
-    time.sleep(2)
-    print()
-
-    print("Today, I'm living the life")
-    print("you kept believing in.")
-    print()
-
-    print("Remember this...")
-    print()
-
-    print("You are no longer")
-    print("the person standing at Level 0.")
-    print()
-
-    print("You've already become someone")
-    print("who takes action.")
-    print()
-
-    print("Protect that version of yourself.")
-    print("Keep moving.")
-    print()
-
-    print("I'll be waiting for you.")
-    print()
-    print("                         — Future You")
-    print("=" * 60)
+    print(future_message)
 
 def start_simulation():
     show_introduction()
