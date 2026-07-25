@@ -1,5 +1,8 @@
 import time
 from modules.utils import get_valid_float
+from modules.storage import profile_exists, save_profile, load_profile
+
+
 def show_introduction():
     print("=" * 60)
     print("                 ECHO - LIFE DECISION SIMULATOR")
@@ -172,11 +175,41 @@ I'll be waiting for you.
 
     print(future_message)
 
-def start_simulation():
-    show_introduction()
+def create_profile():
     name = get_name()
     goal = get_goal()
     habit = get_habit()
     hours = get_daily_hours()
-    generate_future_echo(name, goal, habit, hours)
+
+    profile = {
+        "name": name,
+        "goal": goal,
+        "habit": habit,
+        "hours": hours
+    }
+
+    save_profile(profile)
+
+    return profile
+
+def start_simulation():
+    show_introduction()
+
+    if profile_exists():
+        profile = load_profile()
+
+        print(f"\nWelcome back, {profile['name']}!\n")
+
+    else:
+        print("\nI don't think we've met before.")
+        print("Let's introduce ourselves.\n")
+
+        profile = create_profile()
+
+    generate_future_echo(
+        profile["name"],
+        profile["goal"],
+        profile["habit"],
+        profile["hours"]
+    )
  
