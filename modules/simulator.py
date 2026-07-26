@@ -192,6 +192,47 @@ def create_profile():
 
     return profile
 
+def show_main_menu():
+    print("=" * 60)
+    print("                      ECHO")
+    print("=" * 60)
+    print()
+
+    print("1. Continue Journey")
+    print("2. View My Roadmap")
+    print("3. Update My Goal")
+    print("4. Reset Profile")
+    print("5. Exit")
+    print()
+
+    choice = input("Choose an option: ")
+
+    return choice
+
+def handle_menu_choice(choice, profile):
+    if choice == "1":
+        generate_future_echo(
+            profile["name"],
+            profile["goal"],
+            profile["habit"],
+            profile["hours"]
+        )
+
+    elif choice == "2":
+        print("\n🚧 View Roadmap is coming in Version 1.1.\n")
+
+    elif choice == "3":
+        print("\n🚧 Update Goal is coming in Version 1.1.\n")
+
+    elif choice == "4":
+        print("\n🚧 Reset Profile is coming in Version 1.1.\n")
+
+    elif choice == "5":
+        print("\nGoodbye. See you soon!\n")
+
+    else:
+        print("\n❌ Invalid choice.\n")
+
 def start_simulation():
     show_introduction()
 
@@ -206,10 +247,6 @@ def start_simulation():
 
         profile = create_profile()
 
-    generate_future_echo(
-        profile["name"],
-        profile["goal"],
-        profile["habit"],
-        profile["hours"]
-    )
- 
+    choice = show_main_menu()
+
+    handle_menu_choice(choice, profile)
