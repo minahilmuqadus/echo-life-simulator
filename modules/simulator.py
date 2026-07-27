@@ -1,6 +1,7 @@
 import time
 from modules.utils import get_valid_float
 from modules.storage import profile_exists, save_profile, load_profile
+from modules.roadmap import get_ai_ml_roadmap
 
 
 def show_introduction():
@@ -219,7 +220,14 @@ def handle_menu_choice(choice, profile):
         )
 
     elif choice == "2":
-        print("\n🚧 View Roadmap is coming in Version 1.1.\n")
+        roadmap = get_ai_ml_roadmap()
+
+        print("\n========== YOUR AI/ML ROADMAP ==========\n")
+
+        for index, topic in enumerate(roadmap, start=1):
+         print(f"{index}. {topic}")
+
+         print()
 
     elif choice == "3":
         print("\n🚧 Update Goal is coming in Version 1.1.\n")
