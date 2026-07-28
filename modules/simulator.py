@@ -2,6 +2,7 @@ import time
 from modules.utils import get_valid_float
 from modules.storage import profile_exists, save_profile, load_profile
 from modules.roadmap import get_ai_ml_roadmap
+from modules.roadmap import get_ai_ml_roadmap, get_next_topic
 
 
 def show_introduction():
@@ -186,7 +187,8 @@ def create_profile():
         "name": name,
         "goal": goal,
         "habit": habit,
-        "hours": hours
+        "hours": hours,
+        "completed_topics": []
     }
 
     save_profile(profile)
@@ -211,7 +213,9 @@ def show_main_menu():
     return choice
 
 def handle_menu_choice(choice, profile):
+
     if choice == "1":
+
         generate_future_echo(
             profile["name"],
             profile["goal"],
@@ -220,25 +224,59 @@ def handle_menu_choice(choice, profile):
         )
 
     elif choice == "2":
+
         roadmap = get_ai_ml_roadmap()
 
         print("\n========== YOUR AI/ML ROADMAP ==========\n")
 
         for index, topic in enumerate(roadmap, start=1):
-         print(f"{index}. {topic}")
+            print(f"{index}. {topic['topic']}")
 
-         print()
+        completed_topics = profile["completed_topics"]
+
+        next_topic = get_next_topic(completed_topics)
+
+        print("\n" + "=" * 60)
+        print("                  FUTURE ANALYSIS")
+        print("=" * 60)
+        print()
+
+        print(f"{profile['name']}...")
+        print()
+
+        print("I've been looking at the path you're building.")
+        print()
+
+        print("The next step I recommend is:")
+        print()
+
+        print(f"➡ {next_topic['topic']}")
+        print()
+
+        print("Why?")
+        print(next_topic["reason"])
+        print()
+
+        print(next_topic["echo_message"])
+        print()
+
+        print("                         — Future You")
+        print()
 
     elif choice == "3":
+
         print("\n🚧 Update Goal is coming in Version 1.1.\n")
 
     elif choice == "4":
+
         print("\n🚧 Reset Profile is coming in Version 1.1.\n")
 
     elif choice == "5":
+
         print("\nGoodbye. See you soon!\n")
 
     else:
+
         print("\n❌ Invalid choice.\n")
 
 def start_simulation():

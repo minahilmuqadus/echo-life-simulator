@@ -2,5 +2,6 @@
     "name": "Minahil",
     "goal": "To become AI engineer",
     "habit": "learning new skills",
-    "hours": 3.0
+    "hours": 3.0,
+    "completed_topics": []
 }
