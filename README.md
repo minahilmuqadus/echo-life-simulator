@@ -146,19 +146,19 @@ python main.py
 
 🏠 Dashboard
 
-*(Add screenshot here)*
+![Dashboard](screenshots/dashboard.png)
 
 ---
 
 🧠 Learning Path
 
-*(Add screenshot here)*
+![Learning Path](screenshots/learning-path.png)
 
 ---
 
 💬 Future Echo
 
-*(Add screenshot here)*
+![Future Echo](screenshots/future-echo.png)
 
 ---
 
