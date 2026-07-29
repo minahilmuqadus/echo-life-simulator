@@ -1,6 +1,6 @@
 import time
 from modules.utils import get_valid_float
-from modules.storage import profile_exists, save_profile, load_profile
+from modules.storage import profile_exists, save_profile, load_profile , delete_profile
 from modules.roadmap import get_ai_ml_roadmap
 from modules.roadmap import get_ai_ml_roadmap, get_next_topic
 
@@ -165,6 +165,10 @@ I'll be waiting for you.
 """
 
     time.sleep(2)
+    show_future_message(future_message)
+
+def show_future_message(future_message):
+
     print("=" * 60)
     print("Receiving transmission from the future...")
     time.sleep(2)
@@ -195,22 +199,95 @@ def create_profile():
 
     return profile
 
-def show_main_menu():
-    print("=" * 60)
-    print("                      ECHO")
-    print("=" * 60)
+def update_goal(profile):
+
+    print()
+    print(f"{profile['name']}...")
+    print()
+    print("Sometimes our destination changes.")
+    print("That's not failure.")
+    print()
+    print("Let's update your future.")
     print()
 
-    print("1. Continue Journey")
-    print("2. View My Roadmap")
-    print("3. Update My Goal")
-    print("4. Reset Profile")
-    print("5. Exit")
+    new_goal = input("What's your new goal?\n> ")
+
+    profile["goal"] = new_goal
+
+    save_profile(profile)
+
+    print()
+    print("Future updated.")
+    print("I'll remember this path from now on.")
     print()
 
-    choice = input("Choose an option: ")
+def reset_profile(profile):
 
-    return choice
+    print()
+    print(f"{profile['name']}...")
+    print()
+
+    print("This will erase everything")
+    print("I've remembered about you.")
+    print()
+
+    answer = input("Are you sure? (Y/N): ").strip().lower()
+
+    if answer == "y":
+
+        delete_profile()
+
+        print()
+        print("Your past has been forgotten.")
+        print("Let's begin again.")
+        print()
+
+    else:
+
+        print()
+        print("Nothing was changed.")
+        print()
+
+def show_main_menu(profile):
+
+    print("\n" + "=" * 60)
+    print("                        E C H O")
+    print("=" * 60)
+
+    print()
+    print(f"Welcome back, {profile['name']}.")
+    print()
+
+    print("🎯 Goal")
+    print(profile["goal"])
+    print()
+
+    print("📍 Daily Habit")
+    print(f"{profile['habit']} ({profile['hours']} hrs/day)")
+    print()
+
+    completed_topics = profile["completed_topics"]
+    next_topic = get_next_topic(completed_topics)
+
+    print("📚 Today's Focus")
+    print(next_topic["topic"])
+    print()
+
+    print("⏱ Estimated Time")
+    print(next_topic["estimated_time"])
+    print()
+
+    print("-" * 60)
+
+    print("1. Start Today's Session")
+    print("2. Learning Path")
+    print("3. Change Goal")
+    print("4. Begin Again")
+    print("0. Exit")
+
+    print("-" * 60)
+
+    return input("\nChoose an option: ")
 
 def handle_menu_choice(choice, profile):
 
@@ -262,32 +339,39 @@ def handle_menu_choice(choice, profile):
 
         print("                         — Future You")
         print()
-        ask_topic_completion()
+        ask_topic_completion(profile, next_topic)
     elif choice == "3":
 
-        print("\n🚧 Update Goal is coming in Version 1.1.\n")
+        update_goal(profile)
 
     elif choice == "4":
 
-        print("\n🚧 Reset Profile is coming in Version 1.1.\n")
+        reset_profile(profile)
 
-    elif choice == "5":
+    elif choice == "0":
 
         print("\nGoodbye. See you soon!\n")
+        return
 
     else:
 
         print("\n❌ Invalid choice.\n")
 
 
-def ask_topic_completion():
+def ask_topic_completion(profile, next_topic):
 
     print()
 
     answer = input("Did you complete this topic? (Y/N): ").strip().lower()
 
     if answer == "y":
-        print("\nExcellent. One more step toward your future.\n")
+
+     profile["completed_topics"].append(next_topic["topic"])
+
+     save_profile(profile)
+
+     print("\nExcellent.")
+     print("I've updated your journey.\n")
 
     elif answer == "n":
         print("\nThat's okay. I'll be here when you're ready.\n")
@@ -296,7 +380,7 @@ def ask_topic_completion():
         print("\nI couldn't understand your answer.\n")
 
 def start_simulation():
-    show_introduction()
+    #show_introduction()
 
     if profile_exists():
         profile = load_profile()
@@ -304,11 +388,14 @@ def start_simulation():
         print(f"\nWelcome back, {profile['name']}!\n")
 
     else:
-        print("\nI don't think we've met before.")
-        print("Let's introduce ourselves.\n")
+        
+       show_introduction()
 
-        profile = create_profile()
+       print("\nI don't think we've met before.")
+       print("Let's introduce ourselves.\n")
 
-    choice = show_main_menu()
+       profile = create_profile()
+
+    choice = show_main_menu(profile)
 
     handle_menu_choice(choice, profile)

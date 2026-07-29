@@ -13,3 +13,8 @@ def save_profile(profile):
 def load_profile():
     with open(PROFILE_FILE, "r") as file:
         return json.load(file)
+    
+def delete_profile():
+
+    if os.path.exists(PROFILE_FILE):
+        os.remove(PROFILE_FILE)

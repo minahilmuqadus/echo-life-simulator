@@ -1,1 +1,0 @@
-Project images, icons, screenshots and other assets will be stored here.
