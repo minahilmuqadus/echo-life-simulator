@@ -262,7 +262,7 @@ def handle_menu_choice(choice, profile):
 
         print("                         — Future You")
         print()
-
+        ask_topic_completion()
     elif choice == "3":
 
         print("\n🚧 Update Goal is coming in Version 1.1.\n")
@@ -278,6 +278,22 @@ def handle_menu_choice(choice, profile):
     else:
 
         print("\n❌ Invalid choice.\n")
+
+
+def ask_topic_completion():
+
+    print()
+
+    answer = input("Did you complete this topic? (Y/N): ").strip().lower()
+
+    if answer == "y":
+        print("\nExcellent. One more step toward your future.\n")
+
+    elif answer == "n":
+        print("\nThat's okay. I'll be here when you're ready.\n")
+
+    else:
+        print("\nI couldn't understand your answer.\n")
 
 def start_simulation():
     show_introduction()
